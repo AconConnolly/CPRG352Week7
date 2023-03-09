@@ -12,25 +12,33 @@ import java.io.Serializable;
  * @author alexc
  */
 public class Role implements Serializable {
-    String role;
+    public int roleId;
+    public String name;
+    
+     
     
     public Role() {}
 
-    public Role(String role) {
-        this.role = role;
+    public Role(String name, int roleId) {
+        this.roleId = roleId;
+        this.name = name;
     }
 
-    public String getRole() {
-        return role;
+    public String getName() {
+        return name;
     }
 
-    public void setRole(String role) {
-        if (role.equals(1)) {
-            this.role = "System Admin";
-        }
-        else {
-            this.role = "Regular User";
-        }
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
    
 }

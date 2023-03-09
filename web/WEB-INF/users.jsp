@@ -3,8 +3,9 @@
     Created on : Mar 3, 2023, 9:22:29 AM
     Author     : alexc
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,9 +29,30 @@
                 </tr>
             </thead>
             <tbody>
+               
+            <c:forEach items="${users}" var="user">
                 <tr>
-                    
+                    <td>
+                    ${user.email}
+                    </td>
+                    <td>
+                    ${user.getFirstName()}
+                    </td>
+                    <td>
+                    ${user.getLastName()}
+                    </td>
+                    <td>
+                    ${user.Role()}
+                    </td>
+                    <td>
+                        <a href="user? action=editUser&userEmail=${user.email}">Edit</a>
+                    </td>
+                    <td>
+                        <a href="user? action=deleteUser;userEmail=${user.email}">Delete</a>
+                    </td>
                 </tr>
+            </c:forEach>
+               
             </tbody>
             
         </table>
